@@ -8,12 +8,17 @@
   </div>
 
   <div class='control-group'>
-  <p><%= f.submit "Ask", class: 'btn btn-success' %></p>
+  <p><%= f.submit "Ask", class: 'btn btn-success', placeholder: "What is the meaning of life?" %></p>
   </div>
 <% end %>
 
+<h1>
+<%= @answer %>
+</h1>
+
+
 
 <div id="bottom-right">
-	<p class='small'>Answer a question</p>
+	<p class='small'><%= link_to "Answer a question", questions_path %></p>
 </div>
 </center>
