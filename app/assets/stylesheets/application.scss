@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+ @import 'bootstrap-sprockets';
+ @import 'bootstrap';
+
+body#background {
+  background: url('doge-regular.png') no-repeat 50% 50% fixed; 
+  background-size: cover;
+  background-color: #CC99FF;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}

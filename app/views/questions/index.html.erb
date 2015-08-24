@@ -1,0 +1,8 @@
+Answer a question.
+
+
+<ul>
+<% @questions.each do |question| %>
+	<li><%= link_to question.body, question_path(params[:id]) %></li>
+<% end %>
+</ul>

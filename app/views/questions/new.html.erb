@@ -1,0 +1,15 @@
+<center>
+<div>
+<p class='lead'>Ask me a question.</p>
+
+<%= form_for @question do |f| %>
+  <div class='control-group'>
+  <%= f.text_area :body %>
+  </div>
+
+  <div class='control-group'>
+  <p><%= f.submit "Ask", class: 'btn btn-success' %></p>
+  </div>
+<% end %>
+</div>
+</center>
