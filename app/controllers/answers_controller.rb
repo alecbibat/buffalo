@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.build(answer_params)
 
     if @answer.save
-      redirect_to root_path
+      redirect_to questions_path
     else
       render :new
     end
