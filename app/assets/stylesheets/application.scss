@@ -25,3 +25,9 @@ body#background {
   -o-background-size: cover;
   -webkit-background-size: cover;
 }
+
+#bottom-right {
+	position: fixed;
+	bottom: 5px;
+	right: 10px;
+}
