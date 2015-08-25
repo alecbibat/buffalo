@@ -3,6 +3,8 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
 
     @answer = @question.answers.build(answer_params)
+    @tr = @answer.body.tr('?','')
+    @answer.words = @tr.split(' ')
 
     if @answer.save
       redirect_to questions_path

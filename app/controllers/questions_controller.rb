@@ -23,24 +23,40 @@ class QuestionsController < ApplicationController
       tgr = EngTagger.new()
       tagged = tgr.add_tags(text)
       nouns = tgr.get_nouns(tagged)
-      pt_verbs = tgr.get_past_tense_verbs(tagged)
-      g_verbs = tgr.get_gerund_verbs(tagged)
-      i_verbs = tgr.get_infinitive_verbs(tagged)
-      adj = tgr.get_adjectives(tagged)
-      tr = @question.body.tr('?','')
-      words = tr.split(' ')
+      #pt_verbs = tgr.get_past_tense_verbs(tagged)
+      #g_verbs = tgr.get_gerund_verbs(tagged)
+      #i_verbs = tgr.get_infinitive_verbs(tagged)
+      #adj = tgr.get_adjectives(tagged)
+      #tr = @question.body.tr('?','')
+      #words = tr.split(' ')
       @first_noun = nouns.first
       @answer_words = []
       @questions = Question.all()
         @questions.each do |question|
           if question.words.include? @first_noun.first
             @answer_words << question.words
+            question.answers.each do |answer|
+              @answer_words << answer.words
+            end
             @answer_words = @answer_words.flatten
             @answer_words = @answer_words.uniq
           else
           end
+          binding.pry
         end
-        binding.pry
+      tgr = EngTagger.new()
+      @answer_words = @answer_words.join(' ')
+      tagged = tgr.add_tags(@answer_words)
+      nouns = tgr.get_nouns(tagged).to_a
+      pt_verbs = tgr.get_past_tense_verbs(tagged).to_a
+      g_verbs = tgr.get_gerund_verbs(tagged).to_a
+      i_verbs = tgr.get_infinitive_verbs(tagged).to_a
+      verbs = pt_verbs + g_verbs + i_verbs
+      # verbs is an array of arrays
+      adj = tgr.get_adjectives(tagged).to_a
+
+      readable = adj.sample.first + ' ' + nouns.sample.first + ' ' + verbs.sample.first + ' ' + nouns.sample.first
+      binding.pry
       redirect_to root_path
     else
       redirect_to 'http://google.com'
