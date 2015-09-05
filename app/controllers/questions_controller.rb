@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @answer = @readable
     @question = Question.new()
   end
 
@@ -42,7 +43,6 @@ class QuestionsController < ApplicationController
             @answer_words = @answer_words.uniq
           else
           end
-          binding.pry
         end
       tgr = EngTagger.new()
       @answer_words = @answer_words.join(' ')
@@ -54,10 +54,9 @@ class QuestionsController < ApplicationController
       verbs = pt_verbs + g_verbs + i_verbs
       # verbs is an array of arrays
       adj = tgr.get_adjectives(tagged).to_a
-
-      readable = adj.sample.first + ' ' + nouns.sample.first + ' ' + verbs.sample.first + ' ' + nouns.sample.first
       binding.pry
-      redirect_to root_path
+      @readable = nouns.sample.first + ' ' + nouns.sample.first + ' ' + nouns.sample.first
+      redirect_to question_answer_path(1, 1, @readable)
     else
       redirect_to 'http://google.com'
     end

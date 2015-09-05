@@ -13,6 +13,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def show
+    binding.pry
+  end
+
   private
 
   def answer_params
