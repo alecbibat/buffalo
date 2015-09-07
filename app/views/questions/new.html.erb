@@ -15,7 +15,11 @@
 	<p class='small'><%= link_to "Answer a question", questions_path %></p>
 </div>
 
-<div class=''>
+<% if @readable != nil %>
+<div class='well'>
 <p class='lead'><%= @readable %></p>
 </div>
+<% else %>
+<% end %>
+
 </center>

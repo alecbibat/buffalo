@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
       end
 
       # search twitter for the noun in question
-      @tweets = $twitter.search(@a_noun, result_type: "recent").take(10).collect do |tweet|
+      @tweets = $twitter.search(@a_noun, result_type: "recent").take(20).collect do |tweet|
         "#{tweet.text}"
       end
 
@@ -102,12 +102,13 @@ class QuestionsController < ApplicationController
       adj = tgr.get_adjectives(tagged).to_a
       articles = ['the', 'this', 'that', 'those', 'these']
       x_verbs = ['is', 'was', ' will be']
-      punctuation = ['?', '.', '!', '...']
+      punctuation = ['.', '!', '...']
+      noun_phrases = tgr.get_noun_phrases(tagged).to_a
+      conjunctions = ['but', 'and', 'although', 'however']
 
       # say something profound
 
-      @readable = articles.sample.capitalize + ' ' + @a_noun + ' ' + x_verbs.sample + ' ' + adj.sample.first + ' ' + nouns.sample.first + punctuation.sample
-      binding.pry
+      @readable = articles.sample.capitalize + ' ' + @a_noun + ' ' + x_verbs.sample + ' ' + adj.sample.first + ', ' + conjunctions.sample + ' the ' + noun_phrases.sample.first + ' ' + verbs.sample.first + ' ' + nouns.sample.first + punctuation.sample
   render :new
 end
 
