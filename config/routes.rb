@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'questions#new'
 
+  get 'show_answer' => 'static#show'
+
   resources :questions do
     resources :answers
   end

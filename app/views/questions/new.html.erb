@@ -11,13 +11,11 @@
   </div>
 <% end %>
 
-<h1>
-<%= @answer %>
-</h1>
-
-
-
 <div id="bottom-right">
 	<p class='small'><%= link_to "Answer a question", questions_path %></p>
+</div>
+
+<div class='span8 well'>
+<p class='lead'><%= @readable %></p>
 </div>
 </center>
