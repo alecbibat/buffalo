@@ -1,4 +1,4 @@
 class Question < ActiveRecord::Base
-  has_many :answers
+  validates :body, uniqueness: true
   serialize :words, Array
 end

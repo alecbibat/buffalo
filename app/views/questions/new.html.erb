@@ -3,22 +3,20 @@
 
 <%= form_for @question do |f| %>
   <div class='control-group'>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, placeholder: "What is the meaning of life?" %>
   </div>
 
   <div class='control-group'>
-  <p><%= f.submit "Ask", class: 'btn btn-success', placeholder: "What is the meaning of life?" %></p>
+  <p><%= f.submit "Ask", class: 'btn btn-success' %></p>
   </div>
 <% end %>
 
 <div id="bottom-right">
-	<p class='small'><%= link_to "Answer a question", questions_path %></p>
+	<p class='small'><%= link_to "View all asked questions", questions_path %></p>
 </div>
 
 <% if @readable != nil %>
-<div class='well'>
 <p class='lead'><%= @readable %></p>
-</div>
 <% else %>
 <% end %>
 

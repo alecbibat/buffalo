@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
       end
 
       # search twitter for the noun in question
-      @tweets = $twitter.search(@a_noun, result_type: "recent").take(20).collect do |tweet|
+      @tweets = $twitter.search(@a_noun, result_type: "recent").take(50).collect do |tweet|
         "#{tweet.text}"
       end
 
@@ -108,8 +108,18 @@ class QuestionsController < ApplicationController
 
       # say something profound
 
-      @readable = articles.sample.capitalize + ' ' + @a_noun + ' ' + x_verbs.sample + ' ' + adj.sample.first + ', ' + conjunctions.sample + ' the ' + noun_phrases.sample.first + ' ' + verbs.sample.first + ' ' + nouns.sample.first + punctuation.sample
+      @readable = articles.sample.capitalize + ' ' + 
+                  @a_noun + ' ' + 
+                  x_verbs.sample + ' ' + 
+                  adj.sample.first + ', ' + 
+                  conjunctions.sample + 
+                  ' the ' + 
+                  noun_phrases.sample.first + ' ' + 
+                  verbs.sample.first + ' ' + 
+                  nouns.sample.first + 
+                  punctuation.sample
   render :new
+  @question.save
 end
 
   private
