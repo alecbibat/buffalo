@@ -1,28 +1,5 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dogevac pulls 50 tweets from twitter based on the question asked, regurgitates the words, and builds a basic sentence as an answer using the EngTagger gem to find parts of speech.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Ruby version 1.9.3
