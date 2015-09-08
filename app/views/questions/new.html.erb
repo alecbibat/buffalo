@@ -21,11 +21,9 @@
 <% else %>
 <% end %>
 
-<% if @question.body == "daisy" %>
-
-<%= link_to "Logic Memory Center", 'daisy.mp3', class: 'btn btn-danger', target: "_blank" %>
-
-<% else %>
-<% end %>
+	<% if @question.body == "daisy" %>
+	<%= link_to "Logic Memory Center", 'daisy.mp3', class: 'btn btn-danger', target: "_blank" %>
+	<% else %>
+	<% end %>
 
 </center>

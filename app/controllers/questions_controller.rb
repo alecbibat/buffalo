@@ -124,7 +124,7 @@ class QuestionsController < ApplicationController
     @question.save
   else
   end
-  
+
 end
 
   private
