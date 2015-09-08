@@ -2,11 +2,7 @@ Rails.application.routes.draw do
 
   root 'questions#new'
 
-  get 'show_answer' => 'static#show'
-
-  resources :questions do
-    resources :answers
-  end
+  resources :questions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
