@@ -20,4 +20,13 @@
 <% else %>
 <% end %>
 
+<% if @question.body == "daisy" %>
+<p><a href="javascript:void(0)" id="playsound", class='btn btn-danger'>Logic Memory Center</a></p>
+
+<audio id="sound_effect" class="audio_player" preload="auto">
+    <source src="daisy.mp3">
+</audio>
+<% else %>
+<% end %>
+
 </center>

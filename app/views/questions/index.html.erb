@@ -1,11 +1,5 @@
 Questions of the Universe:
 
-<p><a href="javascript:void(0)" id="playsound", class='btn btn-danger'>Logic Memory Center</a></p>
-
-<audio id="sound_effect" class="audio_player" preload="auto">
-    <source src="daisy.mp3">
-</audio>
-
 <ul>
 <% @questions.each do |question| %>
 	<li><%= link_to question.body, '#' %></li>
