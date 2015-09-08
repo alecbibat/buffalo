@@ -119,7 +119,12 @@ class QuestionsController < ApplicationController
                   nouns.sample.first + 
                   punctuation.sample
   render :new
-  @question.save
+
+  if @question.body != 'daisy'
+    @question.save
+  else
+  end
+  
 end
 
   private

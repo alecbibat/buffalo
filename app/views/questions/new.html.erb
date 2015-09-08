@@ -13,6 +13,7 @@
 
 <div id="bottom-right">
 	<p class='small'><%= link_to "View all asked questions", questions_path %></p>
+	<p class='small'><%= link_to "Github", 'https://github.com/alecbibat/buffalo' %></p>
 </div>
 
 <% if @readable != nil %>
@@ -21,11 +22,9 @@
 <% end %>
 
 <% if @question.body == "daisy" %>
-<p><a href="javascript:void(0)" id="playsound", class='btn btn-danger'>Logic Memory Center</a></p>
 
-<audio id="sound_effect" class="audio_player" preload="auto">
-    <source src="daisy.mp3">
-</audio>
+<%= link_to "Logic Memory Center", 'daisy.mp3', class: 'btn btn-danger', target: "_blank" %>
+
 <% else %>
 <% end %>
 
